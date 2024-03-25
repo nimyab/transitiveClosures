@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\algsearchtransitiveclosure\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|solutionrelative:algsearchtransitiveclosure\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\algsearchtransitiveclosure\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|solutionrelative:algsearchtransitiveclosure\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\algsearchtransitiveclosure\\dsu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|solutionrelative:algsearchtransitiveclosure\\dsu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\algsearchtransitiveclosure\\bfsundir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|solutionrelative:algsearchtransitiveclosure\\bfsundir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\algsearchtransitiveclosure\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|solutionrelative:algsearchtransitiveclosure\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|c:\\users\\artyo\\desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\algsearchtransitiveclosure\\dfsdir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|solutionrelative:algsearchtransitiveclosure\\dfsdir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\algsearchtransitiveclosure\\floyd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9689F15D-51C2-475B-ABC8-AC5C72A4B9EC}|AlgSearchTransitiveClosure\\AlgSearchTransitiveClosure.csproj|solutionrelative:algsearchtransitiveclosure\\floyd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Utils.cs",
+              "RelativeDocumentMoniker": "AlgSearchTransitiveClosure\\Utils.cs",
+              "ToolTip": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Utils.cs",
+              "RelativeToolTip": "AlgSearchTransitiveClosure\\Utils.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAqwEgAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T17:22:04.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "dfsDir.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\dfsDir.cs",
+              "RelativeDocumentMoniker": "AlgSearchTransitiveClosure\\dfsDir.cs",
+              "ToolTip": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\dfsDir.cs",
+              "RelativeToolTip": "AlgSearchTransitiveClosure\\dfsDir.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAzwBgAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T15:57:32.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Floyd.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Floyd.cs",
+              "RelativeDocumentMoniker": "AlgSearchTransitiveClosure\\Floyd.cs",
+              "ToolTip": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Floyd.cs",
+              "RelativeToolTip": "AlgSearchTransitiveClosure\\Floyd.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAArwCUAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T15:50:16.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "bfsUndir.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\bfsUndir.cs",
+              "RelativeDocumentMoniker": "AlgSearchTransitiveClosure\\bfsUndir.cs",
+              "ToolTip": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\bfsUndir.cs",
+              "RelativeToolTip": "AlgSearchTransitiveClosure\\bfsUndir.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAiwBUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T15:49:09.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DSU.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\DSU.cs",
+              "RelativeDocumentMoniker": "AlgSearchTransitiveClosure\\DSU.cs",
+              "ToolTip": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\DSU.cs",
+              "RelativeToolTip": "AlgSearchTransitiveClosure\\DSU.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAADwvz0AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T15:46:00.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Form1.cs",
+              "RelativeDocumentMoniker": "AlgSearchTransitiveClosure\\Form1.cs",
+              "ToolTip": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Form1.cs",
+              "RelativeToolTip": "AlgSearchTransitiveClosure\\Form1.cs",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAmwI4AAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T15:41:21.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Form1.cs",
+              "RelativeDocumentMoniker": "AlgSearchTransitiveClosure\\Form1.cs",
+              "ToolTip": "C:\\Users\\artyo\\Desktop\\\u043A\u0443\u0440\u0441\u0430\u0447\\form\\AlgSearchTransitiveClosure\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "AlgSearchTransitiveClosure\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T14:23:05.161Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
