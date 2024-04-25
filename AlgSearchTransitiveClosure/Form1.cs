@@ -14,18 +14,16 @@ using System.Windows.Forms;
 
 namespace AlgSearchTransitiveClosure
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         Stopwatch sw = new Stopwatch();
+        string saveFilePath;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            saveFileDialog.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
 
         void log(string msg = "")
@@ -62,40 +60,54 @@ namespace AlgSearchTransitiveClosure
 
                     //проверка скорости DSU вместе с формированием
 
-                    sw.Restart();
-                    DSU dsu = new DSU(vertices);
-                    for (int i = 0; i < graph.Count; i++)
-                    {
-                        dsu.union(graph[i][0], graph[i][1]);
-                    }
-                    long timeFormDSU = sw.ElapsedMilliseconds;
+                    long avgTimeForDSU = 0;
+                    int[] parents = Utils.avaregeForDSU(graph, vertices, ref avgTimeForDSU);
 
-                    sw.Restart();
-                    int[] parents1 = dsu.searchComponentsWithoutParallel();
-                    log("Dsu search Components Without Parallel\t" + ((sw.ElapsedMilliseconds + timeFormDSU)).ToString());
+                    log("Dsu search Components Without Parallel\t" + avgTimeForDSU.ToString());
 
-                    sw.Restart();
-                    int[] parents2 = dsu.searchComponentsWithParallel1();
-                    log("Dsu search Components With Parallel1\t" + ((sw.ElapsedMilliseconds + timeFormDSU)).ToString());
-
-                    sw.Restart();
-                    int[] parents3 = dsu.searchComponentsWithParallel2();
-                    log("Dsu search Components With Parallel2\t" + ((sw.ElapsedMilliseconds + timeFormDSU)).ToString());
-
-                    if (vertices <= 20) logTransitiveMatrix(Utils.transitiveMatrixFromDSU(parents1, vertices));
+                    if (isPrintTansitiveCl.Checked) logTransitiveMatrix(Utils.transitiveMatrixFromDSU(parents, vertices));
 
                     //проверка bfs
 
-                    sw.Restart();
-                    bfsUndir bfs = new bfsUndir(vertices);
-                    for (int i = 0; i < graph.Count; i++)
+                    //bfsUndir bfs = new bfsUndir(vertices);
+                    //for (int i = 0; i < graph.Count; i++)
+                    //{
+                    //    bfs.AddEdge(graph[i][0], graph[i][1]);
+                    //}
+                    //sw.Restart();
+                    //List<List<int>> components = bfs.bfs();
+                    //log("bfs undirected search components\t" + ((sw.ElapsedMilliseconds)).ToString());
+
+                    long avgTimeForBFS = 0;
+                    List<List<int>> components = Utils.avaregeForBFSUndir(graph, vertices, ref avgTimeForBFS);
+                    log("bfs undirected search components\t" + avgTimeForBFS.ToString());
+                    if (isPrintTansitiveCl.Checked) logTransitiveMatrix(Utils.transitiveMatrixFromBFSUndir(components, vertices));
+
+                    //проверка Шиолаха-Вишкина
+
+                    long avgTimeForShiolah = 0;
+                    int[] answerWithoutParallel = Utils.avaregeForShiolah(graph, vertices, ref avgTimeForShiolah);
+                    log("shiolah search components without parallel\t" + avgTimeForShiolah.ToString());
+
+                    long avgTimeForShiolahParallel = 0;
+                    int[] answerWithParallel = Utils.avaregeForShiolahParallel(graph, vertices, ref avgTimeForShiolahParallel);
+                    log("shiolah search components with parallel\t" + avgTimeForShiolahParallel.ToString());
+
+                    if (isPrintTansitiveCl.Checked) logTransitiveMatrix(Utils.transitiveMatrixFromDSU(answerWithoutParallel, vertices));
+
+                    //вывод в файл
+                    if (isSaveFile.Checked)
                     {
-                        bfs.AddEdge(graph[i][0], graph[i][1]);
+                        log("start write to file: " + FilenameLabel.Text);
+                        Utils.logBRToFile(saveFilePath);
+                        Utils.logGraphToFile(saveFilePath, graph);
+                        Utils.logTransitiveMatrixFromDSUToFile(saveFilePath, parents, vertices);
+                        Utils.logTransitiveMatrixFromBFSUndirToFile(saveFilePath, components, vertices);
+                        Utils.logTransitiveMatrixFromDSUToFile(saveFilePath, answerWithoutParallel, vertices);
+                        Utils.logBRToFile(saveFilePath);
+                        log("stop wrtite to file");
                     }
-                    List<List<int>> components = bfs.bfs();
-                    log("bfs undirected search components\t" + ((sw.ElapsedMilliseconds)).ToString());
-                    if (vertices <= 20) logTransitiveMatrix(Utils.transitiveMatrixFromBFSUndir(components, vertices));
-                    
+
                     log();
                 }
             }
@@ -122,12 +134,12 @@ namespace AlgSearchTransitiveClosure
                     List<List<int>> graph = Utils.createRandomGraph(vertices, edges);
                     log("graph created");
 
-                    //проверка скорости DSU вместе с формированием
+                    //проверка скорости Флойда
 
                     sw.Restart();
                     List<int>[] dist = Floyd.Alg(graph, vertices);
                     log("Floyd search paths\t" + ((sw.ElapsedMilliseconds)).ToString());
-                    if (vertices <= 20) logTransitiveMatrix(Utils.transitiveMatrixFromFloyd(dist, vertices));
+                    if (isPrintTansitiveCl.Checked) logTransitiveMatrix(Utils.transitiveMatrixFromFloyd(dist, vertices));
 
                     //проверка bfs
 
@@ -146,13 +158,49 @@ namespace AlgSearchTransitiveClosure
                     sw.Restart();
                     bfs.searchTransitiveClosureWithoutParallel();
                     log("bfs directed search paths\t" + ((sw.ElapsedMilliseconds + timeFormBFS)).ToString());
-                    if (vertices <= 20) logTransitiveMatrix(Utils.transitiveMatrixFromBFSDir(paths, vertices));
+                    if (isPrintTansitiveCl.Checked) logTransitiveMatrix(Utils.transitiveMatrixFromBFSDir(paths, vertices));
+
+
+
+                    //вывод в файл
+                    if (isSaveFile.Checked)
+                    {
+                        log("start write to file: " + FilenameLabel.Text);
+                        Utils.logBRToFile(saveFilePath);
+                        Utils.logGraphToFile(saveFilePath, graph);
+                        Utils.logTransitiveMatrixFromFloydToFile(saveFilePath, dist, vertices);
+                        Utils.logTransitiveMatrixFromBFSDirToFile(saveFilePath, paths, vertices);
+                        //еще одна для Пурдома будет
+                        Utils.logBRToFile(saveFilePath);
+                        log("stop wrtite to file");
+                    }
+
                     log();
                 }
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void isPrintTansitiveCl_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void isSaveFile_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!isSaveFile.Checked)
+            {
+                saveFilePath = "";
+                FilenameLabel.Text = "";
+                return;
+            }
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                saveFilePath = saveFileDialog.FileName;
+                FilenameLabel.Text = saveFileDialog.FileName.Split('\\').Last();
             }
         }
     }

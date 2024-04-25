@@ -15,11 +15,55 @@ namespace AlgSearchTransitiveClosure
         {
             this.countV = countV;
             adj = new List<int>[countV];
-            for (int i = 0; i < countV; i++) adj[i] = new List<int>();
+            for (int i = 0; i < countV; i++) adj[i] = new List<int>(countV);
         }
         public void AddEdge(int v, int w) { adj[v].Add(w); adj[w].Add(v); }
 
         public List<List<int>> bfs(int start = 0)
+        {
+            bool[] visited = new bool[countV];
+            List<List<int>> components = new List<List<int>>(countV) { new List<int>(countV) };
+            //components.Add(new List<int>(countV));
+            int index = 0;
+
+            Queue<int> queue = new Queue<int>();
+            visited[start] = true;
+            queue.Enqueue(start);
+            components[index].Add(start);
+
+            while (true)
+            {
+                start = queue.Dequeue();
+
+                foreach (int v in adj[start])
+                {
+                    if (!visited[v])
+                    {
+                        visited[v] = true;
+                        queue.Enqueue(v);
+                        components[index].Add(v);
+                    }
+                }
+                if (queue.Count == 0)
+                {
+                    int notVisitedV = Array.IndexOf(visited, false);
+                    if (notVisitedV != -1)
+                    {
+                        visited[notVisitedV] = true;
+                        queue.Enqueue(notVisitedV);
+                        components.Add(new List<int>(countV));
+                        components[++index].Add(notVisitedV);
+                    }
+                    else break;
+                }
+
+            }
+
+            return components;
+        }
+
+        //не работает, нужно доделать (а может не имеет смысла)
+        public List<List<int>> bfsWithAdj(List<List<int>> graph, int start = 0)
         {
             bool[] visited = new bool[countV];
             List<List<int>> components = new List<List<int>>();
@@ -35,7 +79,7 @@ namespace AlgSearchTransitiveClosure
             {
                 start = queue.Dequeue();
 
-                foreach (int v in adj[start])
+                foreach (int v in graph[start])
                 {
                     if (!visited[v])
                     {

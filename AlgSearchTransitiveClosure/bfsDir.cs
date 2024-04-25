@@ -22,7 +22,7 @@ namespace AlgSearchTransitiveClosure
         public List<int> bfs(int start)
         {
             bool[] visited = new bool[countV];
-            List<int> vertices = new List<int>() { start };
+            List<int> vertices = new List<int>(countV) { start };
 
             Queue<int> queue = new Queue<int>();
             visited[start] = true;
@@ -47,7 +47,7 @@ namespace AlgSearchTransitiveClosure
 
         public List<List<int>> searchTransitiveClosure()
         {
-            List<List<int>> paths = new List<List<int>>();
+            List<List<int>> paths = new List<List<int>>(countV);
             //
             Parallel.For(0, countV, new ParallelOptions { MaxDegreeOfParallelism = 8 }, (i) =>
             {
@@ -57,7 +57,7 @@ namespace AlgSearchTransitiveClosure
         }
         public List<List<int>> searchTransitiveClosureWithoutParallel()
         {
-            List<List<int>> paths = new List<List<int>>();
+            List<List<int>> paths = new List<List<int>>(countV);
 
             for (int i = 0; i < countV; i++)
             {

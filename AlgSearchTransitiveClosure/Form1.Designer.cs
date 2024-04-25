@@ -1,6 +1,6 @@
 ﻿namespace AlgSearchTransitiveClosure
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -38,13 +38,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.isPrintTansitiveCl = new System.Windows.Forms.CheckBox();
+            this.isSaveFile = new System.Windows.Forms.CheckBox();
+            this.FilenameLabel = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 163);
+            this.button1.Location = new System.Drawing.Point(136, 319);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 54);
+            this.button1.Size = new System.Drawing.Size(115, 54);
             this.button1.TabIndex = 0;
             this.button1.Text = "Запустить алгоритм для неор графа\r\n";
             this.button1.UseVisualStyleBackColor = true;
@@ -52,9 +56,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(15, 223);
+            this.button2.Location = new System.Drawing.Point(15, 319);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 54);
+            this.button2.Size = new System.Drawing.Size(115, 54);
             this.button2.TabIndex = 1;
             this.button2.Text = "Запустить алгоритм для ор графа";
             this.button2.UseVisualStyleBackColor = true;
@@ -125,19 +129,51 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(2, 280);
+            this.label3.Location = new System.Drawing.Point(10, 376);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(250, 78);
+            this.label3.Size = new System.Drawing.Size(250, 65);
             this.label3.TabIndex = 9;
-            this.label3.Text = "P.S.\r\n1) все время в миллисекундах\r\n2) матрица будет выведена, если вершин <= 20\r" +
-    "\n3) если будет какая-то ошибка, то можно\r\nпопробовать нажать на кнопку еще раз, " +
-    "у меня\r\nбыло так";
+            this.label3.Text = "P.S.\r\n1) все время в миллисекундах\r\n3) если будет какая-то ошибка, то можно\r\nпопр" +
+    "обовать нажать на кнопку еще раз, у меня\r\nбыло так";
             // 
-            // Form1
+            // isPrintTansitiveCl
+            // 
+            this.isPrintTansitiveCl.AutoSize = true;
+            this.isPrintTansitiveCl.Location = new System.Drawing.Point(13, 233);
+            this.isPrintTansitiveCl.Name = "isPrintTansitiveCl";
+            this.isPrintTansitiveCl.Size = new System.Drawing.Size(252, 17);
+            this.isPrintTansitiveCl.TabIndex = 15;
+            this.isPrintTansitiveCl.Text = "Вывести транзитивное замыкание на экран";
+            this.isPrintTansitiveCl.UseVisualStyleBackColor = true;
+            // 
+            // isSaveFile
+            // 
+            this.isSaveFile.AutoSize = true;
+            this.isSaveFile.Location = new System.Drawing.Point(13, 256);
+            this.isSaveFile.Name = "isSaveFile";
+            this.isSaveFile.Size = new System.Drawing.Size(117, 17);
+            this.isSaveFile.TabIndex = 16;
+            this.isSaveFile.Text = "Сохранить в файл";
+            this.isSaveFile.UseVisualStyleBackColor = true;
+            this.isSaveFile.CheckedChanged += new System.EventHandler(this.isSaveFile_CheckedChanged);
+            // 
+            // FilenameLabel
+            // 
+            this.FilenameLabel.AutoSize = true;
+            this.FilenameLabel.Location = new System.Drawing.Point(32, 276);
+            this.FilenameLabel.Name = "FilenameLabel";
+            this.FilenameLabel.Size = new System.Drawing.Size(62, 13);
+            this.FilenameLabel.TabIndex = 17;
+            this.FilenameLabel.Text = "имя файла";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 450);
+            this.Controls.Add(this.FilenameLabel);
+            this.Controls.Add(this.isSaveFile);
+            this.Controls.Add(this.isPrintTansitiveCl);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.countEdges);
@@ -148,9 +184,8 @@
             this.Controls.Add(this.countGraph);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "MainForm";
+            this.Text = "Транзитивное замыкание";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +203,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox isPrintTansitiveCl;
+        private System.Windows.Forms.CheckBox isSaveFile;
+        private System.Windows.Forms.Label FilenameLabel;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
