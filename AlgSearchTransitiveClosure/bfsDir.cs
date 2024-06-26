@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace AlgSearchTransitiveClosure
 {
-    class bfsDir
+    class BFSDir
     {
         private int countV;
         private List<int>[] adj;
 
-        public bfsDir(int countV)
+        public BFSDir(int countV)
         {
             this.countV = countV;
             adj = new List<int>[countV];
@@ -48,13 +48,13 @@ namespace AlgSearchTransitiveClosure
         public List<List<int>> searchTransitiveClosure()
         {
             List<List<int>> paths = new List<List<int>>(countV);
-            //
-            Parallel.For(0, countV, new ParallelOptions { MaxDegreeOfParallelism = 8 }, (i) =>
+            Parallel.For(0, countV, i =>
             {
                 paths.Add(bfs(i));
             });
             return paths;
         }
+
         public List<List<int>> searchTransitiveClosureWithoutParallel()
         {
             List<List<int>> paths = new List<List<int>>(countV);

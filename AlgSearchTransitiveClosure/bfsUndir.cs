@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AlgSearchTransitiveClosure
 {
-    class bfsUndir
+    class BFSUndir
     {
         private int countV;
         private List<int>[] adj;
 
-        public bfsUndir(int countV)
+        public BFSUndir(int countV)
         {
             this.countV = countV;
             adj = new List<int>[countV];
@@ -19,19 +20,16 @@ namespace AlgSearchTransitiveClosure
         }
         public void AddEdge(int v, int w) { adj[v].Add(w); adj[w].Add(v); }
 
-        public List<List<int>> bfs(int start = 0)
+        public List<int> bfs(int start, ref bool[] visited)
         {
-            bool[] visited = new bool[countV];
-            List<List<int>> components = new List<List<int>>(countV) { new List<int>(countV) };
-            //components.Add(new List<int>(countV));
-            int index = 0;
-
+            List<int> component = new List<int>();
             Queue<int> queue = new Queue<int>();
+
             visited[start] = true;
             queue.Enqueue(start);
-            components[index].Add(start);
+            component.Add(start);
 
-            while (true)
+            while (queue.Count > 0)
             {
                 start = queue.Dequeue();
 
@@ -41,68 +39,24 @@ namespace AlgSearchTransitiveClosure
                     {
                         visited[v] = true;
                         queue.Enqueue(v);
-                        components[index].Add(v);
+                        component.Add(v);
                     }
-                }
-                if (queue.Count == 0)
-                {
-                    int notVisitedV = Array.IndexOf(visited, false);
-                    if (notVisitedV != -1)
-                    {
-                        visited[notVisitedV] = true;
-                        queue.Enqueue(notVisitedV);
-                        components.Add(new List<int>(countV));
-                        components[++index].Add(notVisitedV);
-                    }
-                    else break;
                 }
 
             }
 
-            return components;
+            return component;
         }
 
-        //не работает, нужно доделать (а может не имеет смысла)
-        public List<List<int>> bfsWithAdj(List<List<int>> graph, int start = 0)
+        public List<List<int>> findComponents()
         {
-            bool[] visited = new bool[countV];
             List<List<int>> components = new List<List<int>>();
-            components.Add(new List<int>());
-            int index = 0;
+            bool[] visited = new bool[countV];
 
-            Queue<int> queue = new Queue<int>();
-            visited[start] = true;
-            queue.Enqueue(start);
-            components[index].Add(start);
-
-            while (true)
+            for (int i = 0; i < countV; i++)
             {
-                start = queue.Dequeue();
-
-                foreach (int v in graph[start])
-                {
-                    if (!visited[v])
-                    {
-                        visited[v] = true;
-                        queue.Enqueue(v);
-                        components[index].Add(v);
-                    }
-                }
-                if (queue.Count == 0)
-                {
-                    int notVisitedV = Array.IndexOf(visited, false);
-                    if (notVisitedV != -1)
-                    {
-                        visited[notVisitedV] = true;
-                        queue.Enqueue(notVisitedV);
-                        components.Add(new List<int>());
-                        components[++index].Add(notVisitedV);
-                    }
-                    else break;
-                }
-
+                if (!visited[i]) components.Add(bfs(i, ref visited));
             }
-
             return components;
         }
 

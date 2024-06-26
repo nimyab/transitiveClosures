@@ -26,8 +26,8 @@ namespace AlgSearchTransitiveClosure
 
             for (int i = 0; i < edgesCount;)
             {
-                int x1 = rand.Next(0, size - 1);
-                int x2 = rand.Next(0, size - 1);
+                int x1 = rand.Next(0, size);
+                int x2 = rand.Next(0, size);
                 if (x1 == x2) continue;
                 graph.Add(new List<int> { x1, x2 });
                 i++;
@@ -35,7 +35,6 @@ namespace AlgSearchTransitiveClosure
 
             return graph;
         }
-
 
         public static int[,] transitiveMatrixFromDSU(int[] parents, int ver)
         {
@@ -45,7 +44,7 @@ namespace AlgSearchTransitiveClosure
             {
                 for (int j = 0; j < parents.Length; j++)
                 {
-                    if (i != j && parents[i] == parents[j]) matrix[i, j] = 1;
+                    if (parents[i] == parents[j]) matrix[i, j] = 1;
                 }
             }
 
@@ -65,6 +64,10 @@ namespace AlgSearchTransitiveClosure
                     }
                 }
             }
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                matrix[i, i] = 1;
+            }
             return matrix;
         }
         public static int[,] transitiveMatrixFromBFSDir(List<List<int>> paths, int ver)
@@ -79,6 +82,10 @@ namespace AlgSearchTransitiveClosure
                     if (start != paths[i][j]) matrix[start, paths[i][j]] = 1;
                 }
             }
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                matrix[i, i] = 1;
+            }
 
             return matrix;
         }
@@ -90,15 +97,18 @@ namespace AlgSearchTransitiveClosure
             {
                 for (int j = 0; j < dists[i].Count; j++)
                 {
-                    if (dists[i][j] == 1 && i != j) matrix[i, j] = 1;
+                    if (dists[i][j] == 1) matrix[i, j] = 1;
                 }
+            }
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                matrix[i, i] = 1;
             }
 
             return matrix;
         }
 
-
-        public static void logBRToFile(string filename)
+        public static void logHRToFile(string filename)
         {
             using (StreamWriter sw = new StreamWriter(filename, true))
             {
@@ -118,27 +128,7 @@ namespace AlgSearchTransitiveClosure
                 sw.WriteLine();
             }
         }
-        public static void logTransitiveMatrixFromDSUToFile(string filename, int[] parents, int ver)
-        {
-            int[,] data = transitiveMatrixFromDSU(parents, ver);
-            printDataToFile(filename, data);
-        }
-        public static void logTransitiveMatrixFromBFSUndirToFile(string filename, List<List<int>> components, int ver)
-        {
-            int[,] data = transitiveMatrixFromBFSUndir(components, ver);
-            printDataToFile(filename, data);
-        }
-        public static void logTransitiveMatrixFromBFSDirToFile(string filename, List<List<int>> paths, int ver)
-        {
-            int[,] data = transitiveMatrixFromBFSDir(paths, ver);
-            printDataToFile(filename, data);
-        }
-        public static void logTransitiveMatrixFromFloydToFile(string filename, List<int>[] dists, int ver)
-        {
-            int[,] data = transitiveMatrixFromFloyd(dists, ver);
-            printDataToFile(filename, data);
-        }
-        private static void printDataToFile(string filename, int[,] data)
+        public static void printDataToFile(string filename, int[,] data)
         {
             using (StreamWriter sw = new StreamWriter(filename, true))
             {
@@ -153,7 +143,6 @@ namespace AlgSearchTransitiveClosure
                 sw.WriteLine();
             }
         }
-
 
         public static int[] avaregeForDSU(List<List<int>> graph, int vertices, ref long avgTime)
         {
@@ -185,7 +174,7 @@ namespace AlgSearchTransitiveClosure
             List<long> times = new List<long>(numberRuns);
             List<List<int>> components = null;
 
-            bfsUndir bfs = new bfsUndir(vertices);
+            BFSUndir bfs = new BFSUndir(vertices);
             for (int i = 0; i < graph.Count; i++)
             {
                 bfs.AddEdge(graph[i][0], graph[i][1]);
@@ -193,8 +182,9 @@ namespace AlgSearchTransitiveClosure
 
             for (short num = 0; num < numberRuns; num++)
             {
+                
                 sw.Restart();
-                components = bfs.bfs();
+                components = bfs.findComponents();
                 times.Add(sw.ElapsedMilliseconds);
             }
 
@@ -211,7 +201,7 @@ namespace AlgSearchTransitiveClosure
             for (short num = 0; num < numberRuns; num++)
             {
                 sw.Restart();
-                Shiolah shiolah = new Shiolah(vertices);
+                Shiolach shiolah = new Shiolach(vertices);
                 answerWithoutParallel = shiolah.searchComponentsWithoutParallel(graph);
                 times.Add(sw.ElapsedMilliseconds);
             }
@@ -228,13 +218,62 @@ namespace AlgSearchTransitiveClosure
             for (short num = 0; num < numberRuns; num++)
             {
                 sw.Restart();
-                Shiolah shiolah = new Shiolah(vertices);
+                Shiolach shiolah = new Shiolach(vertices);
                 answerWithParallel = shiolah.searchComponentsWithParallel(graph);
                 times.Add(sw.ElapsedMilliseconds);
             }
 
             avgTime = times.Sum() / numberRuns;
             return answerWithParallel;
+        }
+
+        public static List<int>[] avaregeForFloyd(List<List<int>> graph, int vertices, ref long avgTime)
+        {
+            Stopwatch sw = new Stopwatch();
+            List<int>[] answerFloyd = null;
+            List<long> times = new List<long>(numberRuns);
+
+            for (short num = 0; num < numberRuns; num++)
+            {
+                sw.Restart();
+                answerFloyd = Floyd.Alg(graph, vertices);
+                times.Add(sw.ElapsedMilliseconds);
+            }
+
+            avgTime = times.Sum() / numberRuns;
+            return answerFloyd;
+        }
+        public static List<List<int>> avaregeForBFSDir(BFSDir bfs, ref long avgTime)
+        {
+            Stopwatch sw = new Stopwatch();
+            List<List<int>> answerBfs = null;
+            List<long> times = new List<long>(numberRuns);
+
+            for (short num = 0; num < numberRuns; num++)
+            {
+                sw.Restart();
+                answerBfs = bfs.searchTransitiveClosureWithoutParallel();
+                times.Add(sw.ElapsedMilliseconds);
+            }
+
+            avgTime = times.Sum() / numberRuns;
+            return answerBfs;
+        }
+        public static List<List<int>> avaregeForBFSDirParallel(BFSDir bfs, ref long avgTime)
+        {
+            Stopwatch sw = new Stopwatch();
+            List<List<int>> answerBfs = null;
+            List<long> times = new List<long>(numberRuns);
+
+            for (short num = 0; num < numberRuns; num++)
+            {
+                sw.Restart();
+                answerBfs = bfs.searchTransitiveClosure();
+                times.Add(sw.ElapsedMilliseconds);
+            }
+
+            avgTime = times.Sum() / numberRuns;
+            return answerBfs;
         }
     }
 }

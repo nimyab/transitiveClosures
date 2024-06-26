@@ -53,50 +53,5 @@ namespace AlgSearchTransitiveClosure
 
             return graphPa;
         }
-
-        //мне кажется что это плохая реалтзация потоков, потому что каждую итерацию я создаю новый поток,
-        //а по факту метод find не такой уж и затратный, тк мы идем по дереву и очень быстро находим родителя
-        public int[] searchComponentsWithParallel1()
-        {
-            int[] graphPa = new int[parents.Count];
-            //new ParallelOptions { MaxDegreeOfParallelism = 8 },
-            Parallel.For(0, parents.Count, i =>
-            {
-                graphPa[i] = find(i);
-            });
-
-            return graphPa;
-        }
-
-
-
-        //этот метод немного другой, он быстрее чем версия 1 потому что я не для каждого find вызываю Task
-        //то есть я не трачу время на то, чтобы создать Task и запустить его.
-        //я это могу не делать, потому что find очень быстро рекурсивно ищет родителя
-        public int[] searchComponentsWithParallel2()
-        {
-            int[] graphPa = new int[parents.Count];
-
-            Parallel.For(0, 8, new ParallelOptions { MaxDegreeOfParallelism = 8 }, i =>
-            {
-                for (int j = i; j < parents.Count; j += 8)
-                {
-                    graphPa[j] = find(j);
-                }
-            });
-
-            //List<Task> tasks = new List<Task>();
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    int currentI = i;
-            //    tasks.Add(Task.Run(() =>
-            //    {
-            //        for (int j = currentI; j < parents.Count; j += 6) graphPa[i] = find(j);
-            //    }));
-            //}
-            //Task.WaitAll(tasks.ToArray());
-
-            return graphPa;
-        }
     }
 }

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AlgSearchTransitiveClosure.BFSDir">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAADAAAAAAAAAAAAAAAAAAAAAACQAE=</HashCode>
+      <FileName>BFSDir.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.BFSUndir">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAABAAADAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>BFSUndir.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.DSU">
+    <Position X="3.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAgAAAAAAQAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAE=</HashCode>
+      <FileName>DSU.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.Floyd">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Floyd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.MainForm" Collapsed="true">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAJAhAAMDCIAgBQAIgCCCAQCCAIAAACAAAAAIQpAAAA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.Utils">
+    <Position X="9.75" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAABgAWAAAAACABAAAABCCAQAAAEAAAgAhAAAAA=</HashCode>
+      <FileName>Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.Shiolach">
+    <Position X="8" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Shiolach.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.CreateGraphForm" Collapsed="true">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAACACABAAEACAYAACCAAAAAIAAAAAAAAAAQA=</HashCode>
+      <FileName>CreateGraphForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlgSearchTransitiveClosure.Graph">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAgEAAAABACAAAAAgAAAAAAAAACAAA=</HashCode>
+      <FileName>Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

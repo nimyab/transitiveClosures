@@ -1,0 +1,11 @@
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\bin\x64\Debug\AlgSearchTransitiveClosure.exe.config
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\bin\x64\Debug\AlgSearchTransitiveClosure.exe
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\bin\x64\Debug\AlgSearchTransitiveClosure.pdb
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.csproj.AssemblyReference.cache
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.MainForm.resources
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.Properties.Resources.resources
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.csproj.GenerateResource.cache
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.csproj.CoreCompileInputs.cache
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.exe
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.pdb
+C:\Users\artyo\Desktop\курсач\form\AlgSearchTransitiveClosure\obj\x64\Debug\AlgSearchTransitiveClosure.CreateGraphForm.resources
